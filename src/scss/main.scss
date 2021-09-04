@@ -1,0 +1,45 @@
+ /* 
+////// Breakpoints //////
+
+* Mobile: 480px max-width
+● SmallTablet: 768px max-width
+● Tablet: 1024px max-width
+● Desktop: 1440px max-width
+● Large Desktop: 1441px and greater
+*/
+
+/* 
+//////  Intro Notes
+Your sample will be expected to function properly on IE 11, Edge, and the last 3 versions of Chrome, Firefox, and Safari, as well as on iOS Safari and Chrome (iPhone and iPad). No text links are expected to be functional, but please include hover states (text hover state is shown in the comp).
+*/
+
+/* 
+////// Header
+
+// Notes: 
+
+When mobile, needs to have height of 50px
+
+The header should be fixed at the top of the screen as the user scrolls. On mobile, the height of the header should be 50px. Please resize and align items as necessary, keeping the logo to the left, and other items to the right. At the top of the page, the header should not cover the Hero Carousel.
+*/
+
+x/* 
+////// Hero Carousel
+Notes:
+
+The wide image with overlaid text is a carousel. No previous/next arrows are necessary, but please include the navigation dots as shown in the comp. Please have each slide advance automatically every 5 seconds and loop back to the beginning when the last slide is reached. Users on touch-enabled devices should be able to swipe between slides. The maximum width of the carousel should be 1440px, centering on screens wider than that. As the screen narrows, keep the height (580px) the same, clipping the sides of the image while keeping the text visible and appropriately padded. Once the screen is narrow enough for the carousel to reach a 4:3 ratio, both the width and height of the carousel should scale with the browser width, maintaining the 4:3 aspect ratio. Text may be resized as necessary.
+*/
+
+/* 
+////// Masonry Grid
+Notes:
+
+Items on the masonry grid should be sorted by date, from newest to oldest - the order should not be hardcoded. Please scale the grid and item padding with the browser width. The large titles can scale as you deem appropriate, but please keep the smaller text at its current size. Please adjust the grid to 2 columns for Tablet view. At this point, the padding between the items should be the same as the padding between the grid and the edge of the screen. On Mobile view, the grid should collapse to one column and maintain the same spacing as the tablet view. 
+*/
+
+/* 
+////// Footer Form
+Notes:
+
+The footer form should validate before submitting. Validations include ensuring the email is not blank and it is a valid email. Errors / failed validations should be displayed when submitting the form. If the form submission is successful, a thank you message should be displayed.
+*/
