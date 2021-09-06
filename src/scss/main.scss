@@ -27,6 +27,24 @@ When mobile, needs to have height of 50px
 The header should be fixed at the top of the screen as the user scrolls. On mobile, the height of the header should be 50px. Please resize and align items as necessary, keeping the logo to the left, and other items to the right. At the top of the page, the header should not cover the Hero Carousel.
 */
 
+header {
+    min-height: 50px;
+
+    .hamburger {
+        width: 50px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .line {
+            height: 2px;
+            width: 100%;
+            background-color: ;
+        }
+    }
+}
+
 x/* 
 ////// Hero Carousel
 Notes:
