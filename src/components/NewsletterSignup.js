@@ -3,7 +3,7 @@ import { Formik, Field, Form } from 'formik';
 
 const NewsletterSignup = () => {
     return (
-        <div>
+        <>
             <h3>Sign up for our Newsletter</h3>
             <Formik
                 initialValues={{
@@ -16,18 +16,19 @@ const NewsletterSignup = () => {
             >
                 {/* {({ isSubmitting }) => ( */}
                 <Form>
-                    <label htmlFor="email">Email</label>
-                    <Field
-                        id="email"
-                        name="email"
-                        placeholder="jane@acme.com"
-                        type="email"
-                    />
+                    <label htmlFor="email">
+                        <Field
+                            id="email"
+                            name="email"
+                            placeholder=" "
+                            type="email"
+                        />
+                        <span>Email</span></label>
                     <button type="submit">Submit</button>
                 </Form>
                 {/*  )} */}
             </Formik>
-        </div>
+        </>
     )
 }
 

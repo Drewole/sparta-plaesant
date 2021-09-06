@@ -2,10 +2,12 @@
 @use './fonts';
 
 // TODO: Variables need to be moved to own file.
-$primary: #272525;
+$primary: #131313;
+$white: #FCFCFC;
 //Font Family
 $primary-font: "Springville", serif;
-$secondary-font: "Caslon Pro" sans-serif;
+$secondary-font: "ACaslonPro", "Times", serif;
+$arial: Arial, Helvetica, sans-serif;
 
 //End of vars
 
@@ -20,6 +22,8 @@ $secondary-font: "Caslon Pro" sans-serif;
 body {
     font-family: $secondary-font;
     font-size: 16px;
+    color: $primary;
+    text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -65,6 +69,7 @@ header {
     .contact {
         font-size: .8rem;
         padding: 8px;
+        font-family: $arial;
         a {
             padding: 8px;
             text-decoration: none;
@@ -117,11 +122,66 @@ The footer form should validate before submitting. Validations include ensuring 
 */
 
 footer {
+    padding-bottom: 96px;
+    .newsletter {
+        padding: 48px 2%;
+
+        h3 {
+            padding: 20px 0;
+            font-size: 18px;
+        }
+
+        form {
+            label {
+                position: relative;
+                transform: translateX(-90%);
+                padding: 10px 0 10px;
+
+                span {
+                    padding:10px;
+                    pointer-events: none;
+                    position:absolute;
+                    left:0;
+                    top:0;
+                    transition: 0.2s ease cubic-bezier(0.25, 0.1, 0.25, 1);
+                    opacity:0.5;
+                }
+            }
+            //TODO: Need to fix the label from dropping down when the input loses focus.
+            
+            input {
+                border: 1px solid $primary;
+                padding: 13px 15px 10px;
+                min-width: 200px;
+                font-family: $secondary-font;
+
+                &:focus + span, input:not(:placeholder-shown) + span {
+                    opacity:1;
+                    transform: scale(0.75) translateY(-120%) translateX(-20px);
+                }
+            }
+            /* For IE Browsers*/
+            input:focus + span, input:not(:-ms-input-placeholder) + span {
+                opacity:1;
+                transform: scale(0.75) translateY(-100%) translateX(-30px);
+            }
+            button {
+                padding: 12px 20px 11px;
+                border: none;
+                background-color: $primary;
+                font-size: 1rem;
+                // line-height: 2rem;
+                color: $white;
+                font-family: $secondary-font;
+                text-transform: uppercase;
+            }
+        }
+    }
     .creds {
-        font-size: .8rem;
+        font-size: .7rem;
+        font-family: $arial;
         padding: 50px auto 125px;
         text-transform: uppercase;
-        font-weight: 500;
 
         a {
             color: $primary;
