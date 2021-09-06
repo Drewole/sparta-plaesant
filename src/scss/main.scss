@@ -13,9 +13,17 @@ $secondary-font: "Caslon Pro" sans-serif;
 ////// General Styles
 */
 
+/* 
+////// Typography☄
+*/
+
 body {
     font-family: $secondary-font;
     font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 20px;
 }
 
  /* 
@@ -76,7 +84,7 @@ header {
         }
 
         .line {
-            height: 2px;
+            height: 1px;
             min-width: 100%;
             background-color: $primary;
         }
