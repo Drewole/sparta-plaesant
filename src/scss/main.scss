@@ -1,6 +1,22 @@
-@use './reset.scss';
-@use './fonts.scss';
-@use './variables.scss'; 
+@use './reset';
+@use './fonts';
+
+// TODO: Variables need to be moved to own file.
+$primary: #272525;
+//Font Family
+$primary-font: "Springville", serif;
+$secondary-font: "Caslon Pro" sans-serif;
+
+//End of vars
+
+/* 
+////// General Styles
+*/
+
+body {
+    font-family: $secondary-font;
+    font-size: 16px;
+}
 
  /* 
 ////// Breakpoints //////
@@ -29,23 +45,49 @@ The header should be fixed at the top of the screen as the user scrolls. On mobi
 
 header {
     min-height: 50px;
-
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    img {
+        width: 100%;
+    }
+    .logo {
+        width: 200px;
+    }
+    .contact {
+        font-size: .8rem;
+        padding: 8px;
+        a {
+            padding: 8px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $primary;
+        }
+    }
     .hamburger {
-        width: 50px;
-        height: 40px;
+        margin: 5px;
+        width: 25px;
+        height: 17px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        &:hover {
+            cursor: pointer;
+        }
 
         .line {
             height: 2px;
-            width: 100%;
-            background-color: ;
+            min-width: 100%;
+            background-color: $primary;
         }
+    }
+    .nav {
+        display: flex;
+        justify-content: space-between;
     }
 }
 
-x/* 
+/* 
 ////// Hero Carousel
 Notes:
 
@@ -65,3 +107,18 @@ Notes:
 
 The footer form should validate before submitting. Validations include ensuring the email is not blank and it is a valid email. Errors / failed validations should be displayed when submitting the form. If the form submission is successful, a thank you message should be displayed.
 */
+
+footer {
+    .creds {
+        font-size: .8rem;
+        padding: 50px auto 125px;
+        text-transform: uppercase;
+        font-weight: 500;
+
+        a {
+            color: $primary;
+            text-decoration: underline;
+
+        }
+    }
+}
