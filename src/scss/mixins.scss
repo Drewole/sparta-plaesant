@@ -1,0 +1,30 @@
+/***************************************************
+￼Easy to remember media query sizes
+****************************************************/
+
+//How to Use
+// @include mediaSize(phone)
+// @include mediaSize(tablet-small)
+// @include mediaSize(tablet)
+// @include mediaSize(desktop)
+// @include mediaSize(big-desktop)
+
+@mixin mediaSize($size) {
+	@if $size == tablet-small {
+		@media (min-width: 481px) {
+			@content;
+		} // Min width of 481px
+	} @else if $size == tablet {
+		@media (min-width: 768px) and (max-width: 1024px) {
+			@content;
+		} // Up to 1024px
+	} @else if $size == desktop {
+		@media (min-width: 1025px) and (max-width: 1440px) {
+			@content;
+		} // Up to 1440px
+	} @else if $size == big-desktop {
+		@media (min-width: 1441px) {
+			@content;
+		} //Larger than 1440px
+	}
+}

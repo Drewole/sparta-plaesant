@@ -1,12 +1,57 @@
-@use './reset';
-@use './fonts';
+
+//Trouble getting imports to work
+
+// Springville font 
+@font-face {
+font-family: "Springville";
+src: local("Springville"),
+ url("../fonts/Springville-Regular3.otf") format("truetype");
+}
+// Caslon pro font 
+@font-face {
+font-family: "ACaslonPro";
+src: local("ACaslonPro"),
+ url("../fonts/ACaslonPro-Regular.otf") format("truetype");
+}
+/***************************************************
+￼Easy to remember media query sizes
+****************************************************/
+
+//How to Use
+// @include mediaSize(phone)
+// @include mediaSize(tablet-small)
+// @include mediaSize(tablet)
+// @include mediaSize(desktop)
+// @include mediaSize(big-desktop)
+
+@mixin mediaSize($size) {
+	@if $size == tablet-small {
+		@media (min-width: 481px) {
+			@content;
+		} // Min width of 481px
+	} @else if $size == tablet {
+		@media (min-width: 768px) {
+			@content;
+		} // Up to 1024px
+	} @else if $size == desktop {
+		@media (min-width: 1025px) and (max-width: 1440px) {
+			@content;
+		} // Up to 1440px
+	} @else if $size == big-desktop {
+		@media (min-width: 1441px) {
+			@content;
+		} //Larger than 1440px
+	}
+}
 
 // TODO: Variables need to be moved to own file.
 $primary: #131313;
+$gray: #767676;
+$light-gray: #DBDBDB;
 $white: #FCFCFC;
 //Font Family
-$primary-font: "Springville", serif;
-$secondary-font: "ACaslonPro", "Times", serif;
+$primary-font: "Springville", sans-serif;
+$secondary-font: "ACaslonPro", sans-serif;
 $arial: Arial, Helvetica, sans-serif;
 
 //End of vars
@@ -108,11 +153,72 @@ The wide image with overlaid text is a carousel. No previous/next arrows are nec
 */
 
 /* 
-////// Masonry Grid
+////// Posts -- Masonry Grid
 Notes:
 
 Items on the masonry grid should be sorted by date, from newest to oldest - the order should not be hardcoded. Please scale the grid and item padding with the browser width. The large titles can scale as you deem appropriate, but please keep the smaller text at its current size. Please adjust the grid to 2 columns for Tablet view. At this point, the padding between the items should be the same as the padding between the grid and the edge of the screen. On Mobile view, the grid should collapse to one column and maintain the same spacing as the tablet view. 
 */
+//TODO:Still need to improve the masonry grid to fill everything in
+.posts {
+    padding: 0 4%;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5%;
+    grid-template-rows: masonry;
+
+    @include mediaSize(tablet-small) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include mediaSize(desktop) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    article {
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $light-gray;
+        margin-bottom: 2rem;
+    }
+
+    img {
+        width: 100%;
+    }
+    p {
+        font-size: .85rem;
+
+        a {
+            color: $primary;
+            text-transform: uppercase;
+        }
+    }
+    p.date {
+        padding: 2rem 0 1.5rem;
+        font-size: .78rem;
+        text-transform: uppercase;
+        font-family: $arial;
+        color: $gray;
+    }
+
+    h2 {
+        margin: 0 0 1.5rem;
+        
+        a {
+            font-size: 3.5rem;
+            text-decoration: none;
+            font-family: $primary-font;
+            color: $primary;
+            @include mediaSize(tablet-small) {
+            font-size: 2rem;
+            }
+            @include mediaSize(tablet) {
+                font-size: 3.5rem;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
 
 /* 
 ////// Footer Form
