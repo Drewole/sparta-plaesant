@@ -160,7 +160,7 @@ Items on the masonry grid should be sorted by date, from newest to oldest - the 
 */
 //TODO:Still need to improve the masonry grid to fill everything in
 .posts {
-    padding: 0 4%;
+    padding: 0 4% 5rem;
     text-align: left;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -230,7 +230,7 @@ The footer form should validate before submitting. Validations include ensuring 
 footer {
     padding-bottom: 96px;
     .newsletter {
-        padding: 48px 2%;
+        padding: 5rem 2%;
 
         h3 {
             padding: 20px 0;
@@ -285,6 +285,7 @@ footer {
     }
     .creds {
         font-size: .7rem;
+        line-height: 1.6rem;
         font-family: $arial;
         padding: 50px auto 125px;
         text-transform: uppercase;

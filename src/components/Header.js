@@ -1,4 +1,4 @@
-import React, { Link } from 'react'
+import React from 'react'
 import logo from '../img/logo.svg'
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
             <div className="nav">
                 <div className="contact">
                     <a className="phone" href="tel:212.555.5555">212.555.5555</a>
-                    <a className="login" href="#">Login</a>
+                    <a className="login" href="/#">Login</a>
                 </div>
                 <div className="hamburger">
                     <div className="line"></div>
