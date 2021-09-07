@@ -33,7 +33,7 @@ const NewsletterSignup = () => {
                                     id="email"
                                     validate={validateEmail}
                                     name="email"
-                                    placeholder=" "
+                                    placeholder="&nbsp;"
                                     type="email"
                                 />
                                 <span>Email</span>
