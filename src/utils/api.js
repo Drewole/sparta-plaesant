@@ -10,6 +10,7 @@ export default async function getData() {
             mode: 'cors', // no-cors, *cors, same-origin
         })
         const data = await response.json()
+        console.log("Fetched")
         return data;
     }
     catch (err) {
@@ -18,17 +19,19 @@ export default async function getData() {
 }
 //POST method implementation:
 export async function postData(data) {
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, *cors, same-origin
+            headers: {
+                'Content-Type': 'application/json'
 
-    const response = await fetch(apiUrl, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        headers: {
-            'Content-Type': 'application/json'
-
-        },
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-    }).catch((error) => {
-        console.log(error)
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
+            },
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        })
+        return await response.json()
+    }
+    catch (err) {
+        console.log(err)
+    }
 }
