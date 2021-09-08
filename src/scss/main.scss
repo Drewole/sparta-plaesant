@@ -1,5 +1,51 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-//Trouble getting imports to work
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 // Springville font 
 @font-face {
@@ -34,7 +80,7 @@ src: local("ACaslonPro"),
 			@content;
 		} // Up to 1024px
 	} @else if $size == desktop {
-		@media (min-width: 1025px) and (max-width: 1440px) {
+		@media (min-width: 1025px) {
 			@content;
 		} // Up to 1440px
 	} @else if $size == big-desktop {
@@ -120,6 +166,10 @@ header {
             text-decoration: none;
             text-transform: uppercase;
             color: $primary;
+            transition: all .2s ease-in-out;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
     .hamburger {
@@ -151,6 +201,37 @@ Notes:
 
 The wide image with overlaid text is a carousel. No previous/next arrows are necessary, but please include the navigation dots as shown in the comp. Please have each slide advance automatically every 5 seconds and loop back to the beginning when the last slide is reached. Users on touch-enabled devices should be able to swipe between slides. The maximum width of the carousel should be 1440px, centering on screens wider than that. As the screen narrows, keep the height (580px) the same, clipping the sides of the image while keeping the text visible and appropriately padded. Once the screen is narrow enough for the carousel to reach a 4:3 ratio, both the width and height of the carousel should scale with the browser width, maintaining the 4:3 aspect ratio. Text may be resized as necessary.
 */
+.hero {
+    position: relative;
+    img {
+        filter: brightness(50%)
+    }
+    margin: 0 auto 50px
+}
+.hero-text {
+    color: $white;
+    text-align: left;
+    padding: 4%;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transform: translateY(-50%);
+    position: absolute;
+    bottom: 0;
+
+    h1 {
+        font-size: 3.5rem;
+        font-family: $primary-font;
+        line-height: 2.5rem;
+
+    }
+    h3 {
+        font-size: 1.5rem;
+        padding: 2rem 0;
+    }
+    p {
+        font-size: 1.1rem;
+        line-height: 1.8rem;
+    }
+}
 
 /* 
 ////// Posts -- Masonry Grid
@@ -165,7 +246,7 @@ Items on the masonry grid should be sorted by date, from newest to oldest - the 
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 5%;
-    grid-template-rows: masonry;
+    grid-template-rows: max-content ;
 
     @include mediaSize(tablet-small) {
         grid-template-columns: repeat(2, 1fr);
@@ -249,7 +330,7 @@ footer {
                     position:absolute;
                     left:0;
                     top:0;
-                    transition: 0.2s ease cubic-bezier(0.25, 0.1, 0.25, 1);
+                    transition: all 0.2s ease-in-out;
                     opacity:0.5;
                 }
             }
@@ -260,8 +341,12 @@ footer {
                 padding: 13px 15px 10px;
                 min-width: 200px;
                 font-family: $secondary-font;
-
-                &:focus + span, input:not(:placeholder-shown) + span {
+                transition: all 0.2s ease-in-out;
+                &:not(:placeholder-shown) + span {
+                    opacity:1;
+                    transform: scale(0.75) translateY(-120%) translateX(-20px);
+                }
+                &:focus + span {
                     opacity:1;
                     transform: scale(0.75) translateY(-120%) translateX(-20px);
                 }
@@ -294,6 +379,19 @@ footer {
             color: $primary;
             text-decoration: underline;
 
+        }
+    }
+    
+    @include mediaSize(tablet-small) { 
+        .creds:first-of-type {
+        &:after {
+            content: '-';
+            padding: 5px;
+        }
+    }
+        .credits {
+            display: flex;
+            justify-content: center;
         }
     }
 }

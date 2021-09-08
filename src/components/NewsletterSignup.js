@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { postData } from '../utils/api'
 
 function validateEmail(value) {
     let error;
@@ -21,8 +22,11 @@ const NewsletterSignup = () => {
                     email: ''
                 }}
                 onSubmit={async (values) => {
+                    const success = postData(values)
                     await new Promise((r) => setTimeout(r, 500));
-                    alert(JSON.stringify(values, null, 2));
+                    if (success) {
+                        alert("Successfully subscribed")
+                    }
                 }}
             >
                 {({ isSubmitting }) => (

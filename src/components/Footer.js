@@ -7,7 +7,11 @@ const Footer = () => {
             <div className="newsletter">
                 <NewsletterSignup />
             </div>
-            <p className="creds">&copy; 2021 &mdash; Sparta Plaesant - <a href="/#">Instagram</a> - <a href="/#">Facebook</a> - <a href="/#">Twitter</a></p>
+            <div className="credits">
+                <p className="creds">&copy; 2021 &mdash; Sparta Plaesant</p>
+                <p className="creds"><a href="/#">Instagram</a> - <a href="/#">Facebook</a> - <a href="/#">Twitter</a></p>
+            </div>
+
         </footer>
     )
 }

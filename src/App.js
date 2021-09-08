@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './components/Card';
+import HeroText from './components/HeroText';
+import ImageSlider from './components/ImageSlider';
 import Layout from './components/Layout';
-import getData, { postData } from './utils/api'
+import getData from './utils/api'
+import Masonry from 'react-masonry-css'
 
 function App() {
   const [data, setData] = useState(JSON.parse(localStorage.getItem('data')) || {});
@@ -25,8 +28,8 @@ function App() {
   }, [data]);
 
   // // Data for the slider
-  // const slides = data.hero_slides
-  // const heroText = data.hero_text
+  const slides = data.hero_slides
+  const heroText = data.hero_text
   // Data for the posts
 
   const sorted = data.cards.sort((a, b) => (a.date > b.date) ? -1 : 1)
@@ -44,14 +47,10 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        {/* <section className="hero">
-          <Slider slides={slides} />
-          <div className="hero-text">
-            <h1>{heroText.title}</h1>
-            <h3>{heroText.date}</h3>
-            <p>{heroText.text}</p>
-          </div>
-        </section> */}
+        <section className="hero">
+          <ImageSlider slides={slides} />
+          <HeroText title={heroText.title} date={heroText.date} subtitle={heroText.subtitle} />
+        </section>
         <section className="posts">
           {isLoading ? <h1>Loading</h1> :
             listPosts.length === 0 ? " " :
