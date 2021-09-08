@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './components/Card';
 import Layout from './components/Layout';
-import Slider from './components/Slider';
 import getData, { postData } from './utils/api'
 
 function App() {
@@ -24,8 +23,8 @@ function App() {
   }, [])
   console.log(data, "The Data")
   // Data for the slider
-  const slides = data.hero_slides
-  const heroText = data.hero_text
+  // const slides = data.hero_slides
+  // const heroText = data.hero_text
   // Data for the posts
   const posts = data.cards;
   const sorted = posts.sort((a, b) => (a.date > b.date) ? -1 : 1)
@@ -43,14 +42,14 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <section className="hero">
+        {/* <section className="hero">
           <Slider slides={slides} />
           <div className="hero-text">
             <h1>{heroText.title}</h1>
             <h3>{heroText.date}</h3>
             <p>{heroText.text}</p>
           </div>
-        </section>
+        </section> */}
         <section className="posts">
           {isLoading ? <h1>Loading...</h1> :
             listPosts
