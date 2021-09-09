@@ -25,6 +25,7 @@ const NewsletterSignup = () => {
         <>
             <h3>Sign up for our Newsletter</h3>
             <Formik
+                className="form"
                 initialValues={{
                     email: ''
                 }}
@@ -45,7 +46,7 @@ const NewsletterSignup = () => {
                                 </div>
                             }
                         </div>
-                        <Form>
+                        <Form className="form">
                             <label htmlFor="email">
                                 <Field
                                     id="email"
@@ -54,12 +55,13 @@ const NewsletterSignup = () => {
                                     placeholder="&nbsp;"
                                     type="email"
                                 />
-                                <span>Email</span>
+                                <span className="label">Email</span>
                             </label>
+                            <ErrorMessage component="p" name="email" render={``} />
 
                             <button type="submit">Submit</button>
                         </Form>
-                        <p><ErrorMessage name="email" /></p>
+
                     </>
                 )}
             </Formik>

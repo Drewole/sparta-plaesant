@@ -96,6 +96,7 @@ $gray: #767676;
 $light-gray: #DBDBDB;
 $white: #FCFCFC;
 $green: #4dc97d;
+$red: #e74c3c;
 //Font Family
 $primary-font: "Springville", sans-serif;
 $secondary-font: "ACaslonPro", sans-serif;
@@ -268,7 +269,7 @@ Notes:
 
 Items on the masonry grid should be sorted by date, from newest to oldest - the order should not be hardcoded. Please scale the grid and item padding with the browser width. The large titles can scale as you deem appropriate, but please keep the smaller text at its current size. Please adjust the grid to 2 columns for Tablet view. At this point, the padding between the items should be the same as the padding between the grid and the edge of the screen. On Mobile view, the grid should collapse to one column and maintain the same spacing as the tablet view. 
 */
-//TODO:Still need to improve the masonry grid to fill everything in
+
 .posts {
     text-align: left;
     article {
@@ -343,21 +344,27 @@ Items on the masonry grid should be sorted by date, from newest to oldest - the 
 /* 
 ////// Footer Form
 Notes:
-
 The footer form should validate before submitting. Validations include ensuring the email is not blank and it is a valid email. Errors / failed validations should be displayed when submitting the form. If the form submission is successful, a thank you message should be displayed.
 */
-
-.alert-success {
-            
-    margin: 20px 0;
-    text-align: center;
-    font-weight: 2rem;
-    border: 1px solid darken($green, 10%);
-    background-color: $green;
-    padding: 20px 0;
-        }
 footer {
     padding-bottom: 96px;
+
+    .alert-success {      
+        margin: 20px 0;
+        text-align: center;
+        font-weight: 2rem;
+        border: 1px solid darken($green, 10%);
+        background-color: $green;
+        padding: 20px 0;
+    }
+    .error {      
+        margin: 20px 0;
+        text-align: center;
+        font-weight: 2rem;
+        border: 1px solid darken($red, 10%);
+        background-color: $red;
+        padding: 20px 0;
+    }
     .newsletter {
         padding: 5rem 2%;
 
@@ -382,7 +389,6 @@ footer {
                     opacity:0.5;
                 }
             }
-            //TODO: Need to fix the label from dropping down when the input loses focus.
             
             input {
                 border: 1px solid $primary;
