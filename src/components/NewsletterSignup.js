@@ -13,7 +13,14 @@ function validateEmail(value) {
 }
 
 const NewsletterSignup = () => {
+    const [success, setSuccess] = React.useState(false);
 
+    const alertSuccess = () => {
+        setSuccess(true);
+        setTimeout(() => {
+            setSuccess(false)
+        }, 3000);
+    }
     return (
         <>
             <h3>Sign up for our Newsletter</h3>
@@ -25,12 +32,19 @@ const NewsletterSignup = () => {
                     const success = postData(values)
                     await new Promise((r) => setTimeout(r, 500));
                     if (success) {
-                        alert("Successfully subscribed")
+                        alertSuccess();
                     }
                 }}
             >
                 {({ isSubmitting }) => (
                     <>
+                        <div className="alert">
+                            {success &&
+                                <div className="alert alert-success" role="alert">
+                                    <p>Success! Thank you for subscribing to our newsletter!</p>
+                                </div>
+                            }
+                        </div>
                         <Form>
                             <label htmlFor="email">
                                 <Field
@@ -45,7 +59,7 @@ const NewsletterSignup = () => {
 
                             <button type="submit">Submit</button>
                         </Form>
-                        <p><ErrorMessage name="firstName" /></p>
+                        <p><ErrorMessage name="email" /></p>
                     </>
                 )}
             </Formik>

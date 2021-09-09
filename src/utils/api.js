@@ -30,7 +30,8 @@ export async function postData(data) {
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         })
         console.log(response.json, "Post Response")
-        return await response.json()
+        //if response good then return true
+        return response.json()
     }
     catch (err) {
         console.log(err)

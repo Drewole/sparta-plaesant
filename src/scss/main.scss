@@ -95,6 +95,7 @@ $primary: #131313;
 $gray: #767676;
 $light-gray: #DBDBDB;
 $white: #FCFCFC;
+$green: #4dc97d;
 //Font Family
 $primary-font: "Springville", sans-serif;
 $secondary-font: "ACaslonPro", sans-serif;
@@ -115,10 +116,16 @@ body {
     font-size: 16px;
     color: $primary;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-size: 20px;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
  /* 
@@ -148,27 +155,42 @@ The header should be fixed at the top of the screen as the user scrolls. On mobi
 
 header {
     min-height: 50px;
-    padding: 2rem;
+    padding: 1.5rem;
+    position: relative;
     display: flex;
     justify-content: space-between;
+    @include mediaSize(tablet) {
+        padding: 2rem;
+    }
     img {
         width: 100%;
     }
     .logo {
-        width: 200px;
+        flex-basis: 70%;
+        max-width: 200px;
+        
+        align-content: center;
+        @include mediaSize(tablet) {
+            flex-basis: 30%;
+        }
     }
     .contact {
-        font-size: .8rem;
+        font-size: .5rem;
         padding: 8px;
+        @include mediaSize(tablet-small) {
+            font-size: .75rem;
+        }
+
         font-family: $arial;
         a {
             padding: 8px;
             text-decoration: none;
             text-transform: uppercase;
-            color: $primary;
+            color: $gray;
             transition: all .2s ease-in-out;
             &:hover {
                 text-decoration: underline;
+                color: $primary;
             }
         }
     }
@@ -203,10 +225,17 @@ The wide image with overlaid text is a carousel. No previous/next arrows are nec
 */
 .hero {
     position: relative;
+    height: auto;
+    
     img {
         filter: brightness(50%)
     }
-    margin: 0 auto 50px
+    margin: 0 auto 50px;
+
+    @include mediaSize(tablet-small) {
+        max-height: 580px;
+        aspect-ratio: auto;
+    }
 }
 .hero-text {
     color: $white;
@@ -220,7 +249,7 @@ The wide image with overlaid text is a carousel. No previous/next arrows are nec
     h1 {
         font-size: 3.5rem;
         font-family: $primary-font;
-        line-height: 2.5rem;
+        line-height: 3.5rem;
 
     }
     h3 {
@@ -241,20 +270,7 @@ Items on the masonry grid should be sorted by date, from newest to oldest - the 
 */
 //TODO:Still need to improve the masonry grid to fill everything in
 .posts {
-    padding: 0 4% 5rem;
     text-align: left;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 5%;
-    grid-template-rows: max-content ;
-
-    @include mediaSize(tablet-small) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    @include mediaSize(desktop) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
     article {
         padding-bottom: 2rem;
         border-bottom: 1px solid $light-gray;
@@ -300,6 +316,26 @@ Items on the masonry grid should be sorted by date, from newest to oldest - the 
         }
     }
 }
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  padding: 0 2%;
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding: 0 4%; /* gutter size */
+  background-clip: padding-box;
+  @include mediaSize(tablet-small) {
+      padding: 0 2%;
+  }
+}
+
+/* Style your items */
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  background: grey;
+  margin-bottom: 30px;
+}
 
 /* 
 ////// Footer Form
@@ -307,7 +343,18 @@ Notes:
 
 The footer form should validate before submitting. Validations include ensuring the email is not blank and it is a valid email. Errors / failed validations should be displayed when submitting the form. If the form submission is successful, a thank you message should be displayed.
 */
-
+.alert {
+    
+}
+.alert-success {
+            
+    margin: 20px 0;
+    text-align: center;
+    font-weight: 2rem;
+    border: 1px solid darken($green, 10%);
+    background-color: $green;
+    padding: 20px 0;
+        }
 footer {
     padding-bottom: 96px;
     .newsletter {
