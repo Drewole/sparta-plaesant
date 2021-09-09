@@ -13,7 +13,7 @@ function validateEmail(value) {
 }
 
 const NewsletterSignup = () => {
-    console.log(process.env.API_URL, "API URL")
+
     return (
         <>
             <h3>Sign up for our Newsletter</h3>

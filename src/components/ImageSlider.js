@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 const ImageSlider = ({ slides }) => {
     const settings = {
         dots: true,
+        swipeToSlide: true,
         autoplay: true,
         autoplaySpeed: 5000,
         infinite: true,
