@@ -30,7 +30,7 @@ function App() {
 
   // Masonry settings
   const breakpoints = {
-    default: 4,
+    default: 3,
     1144: 3,
     768: 2,
     500: 1
@@ -42,7 +42,8 @@ function App() {
 
   const sorted = !data.cards ? {} : data.cards.sort((a, b) => (a.date > b.date) ? -1 : 1)
 
-  const listPosts = sorted.map((post, index) => {
+  let listPosts = [];
+  !sorted ? listPosts = [] : listPosts = sorted.map((post, index) => {
     return (
       <Card
         key={post.title}

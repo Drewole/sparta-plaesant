@@ -321,6 +321,9 @@ Items on the masonry grid should be sorted by date, from newest to oldest - the 
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
   padding: 0 2%;
+  @media only screen and (min-width: 1500px) {
+    padding: 0;
+    } /* end of media query */
   width: auto;
 }
 .my-masonry-grid_column {
@@ -343,9 +346,7 @@ Notes:
 
 The footer form should validate before submitting. Validations include ensuring the email is not blank and it is a valid email. Errors / failed validations should be displayed when submitting the form. If the form submission is successful, a thank you message should be displayed.
 */
-.alert {
-    
-}
+
 .alert-success {
             
     margin: 20px 0;
