@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/sparta-plaesant/static/css/main.a25add51.chunk.css",
-    "main.js": "/sparta-plaesant/static/js/main.f35f49ef.chunk.js",
-    "main.js.map": "/sparta-plaesant/static/js/main.f35f49ef.chunk.js.map",
+    "main.js": "/sparta-plaesant/static/js/main.a766e437.chunk.js",
+    "main.js.map": "/sparta-plaesant/static/js/main.a766e437.chunk.js.map",
     "runtime-main.js": "/sparta-plaesant/static/js/runtime-main.2a95ae55.js",
     "runtime-main.js.map": "/sparta-plaesant/static/js/runtime-main.2a95ae55.js.map",
     "static/css/2.07d90f32.chunk.css": "/sparta-plaesant/static/css/2.07d90f32.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.07d90f32.chunk.css",
     "static/js/2.8f195168.chunk.js",
     "static/css/main.a25add51.chunk.css",
-    "static/js/main.f35f49ef.chunk.js"
+    "static/js/main.a766e437.chunk.js"
   ]
 }
