@@ -42,18 +42,18 @@ function App() {
 
   const sorted = !data.cards ? {} : data.cards.sort((a, b) => (a.date > b.date) ? -1 : 1)
 
-  let listPosts = [];
-  !sorted ? listPosts = [] : listPosts = sorted.map((post, index) => {
-    return (
-      <Card
-        key={post.title}
-        src={post.image}
-        date={post.date}
-        title={post.title}
-        author={post.author}
-      />
-    )
-  })
+  // let listPosts = [];
+  // !sorted ? listPosts = {} : listPosts = sorted.map((post, index) => {
+  //   return (
+  //     <Card
+  //       key={post.title}
+  //       src={post.image}
+  //       date={post.date}
+  //       title={post.title}
+  //       author={post.author}
+  //     />
+  //   )
+  // })
   return (
     <div className="App">
       <Layout>
@@ -67,7 +67,7 @@ function App() {
             className="my-masonry-grid posts container"
             columnClassName="my-masonry-grid_column"
           >
-            {listPosts}
+            {/* {!listPosts ? <div>Loading...</div> : listPosts} */}
           </Masonry>
         </section>
 
